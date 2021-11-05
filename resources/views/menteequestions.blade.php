@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
   <meta name="author" content="Creative Tim">
-  <title>Mentorship.ng | BrowserMentor</title>
+  <title>Selbolt</title>
   <link rel="icon" href="{{asset('assets/img/brand/favicon.png')}}" type="image/png">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
   <link rel="stylesheet" href="{{asset('assets/vendor/nucleo/css/nucleo.css')}}" type="text/css">
@@ -17,7 +17,7 @@
         font-size : 20px;  
     }  
     #text-color{
-        color: #191970
+        color: #C124BB
       }
     .unchecked {
         font-size : 20px;  
@@ -44,7 +44,7 @@
 
 <body class="bg" style="background-color: #f8f8ff;">
   <!-- Navbar -->
-  <nav id="navbar-main" style="background-color: #191970;position: fixed" class="navbar navbar-horizontal navbar-transparent navbar-main navbar-expand-lg navbar-light">
+  <nav id="navbar-main" style="background-color: #C124BB;position: fixed" class="navbar navbar-horizontal navbar-transparent navbar-main navbar-expand-lg navbar-light">
     <div class="container">
       <a class="navbar-brand" href="#">
         Mentorships.ng

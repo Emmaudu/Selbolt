@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
   <meta name="author" content="Creative Tim">
-  <title>Mentorship.ng | BrowserMentor</title>
+  <title>Selbolt | BrowserTasker</title>
   <link rel="icon" href="{{asset('assets/img/brand/favicon.png')}}" type="image/png">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
   <link rel="stylesheet" href="{{asset('assets/vendor/nucleo/css/nucleo.css')}}" type="text/css">
@@ -34,17 +34,17 @@
       font-family: Arial, Helvetica, sans-serif;
     }
     #noprofile {
-      float: center;margin: auto;margin-top: 20px;line-height: 150px;color: white; width:50%; border-radius: 50%; background: #512DA8; font-size: 25px; text-align: center;
+      float: center;margin: auto;margin-top: 20px;line-height: 150px;color: white; width:50%; border-radius: 50%; background: #C124BB; font-size: 25px; text-align: center;
     }
   </style>
 </head>
 
 <body class="bg" style="background-color: #f8f8ff;">
   <!-- Navbar -->
-  <nav id="navbar-main" style="background-color: #191970;position: fixed" class="navbar navbar-horizontal navbar-transparent navbar-main navbar-expand-lg navbar-light">
+  <nav id="navbar-main" style="background-color: #C124BB;position: fixed" class="navbar navbar-horizontal navbar-transparent navbar-main navbar-expand-lg navbar-light">
     <div class="container">
-      <a class="navbar-brand" href="#">
-        Mentorships.ng
+      <a class="navbar-brand text-white" href="#">
+        <h1 class="text-white">Selbolt</h1>
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -53,8 +53,8 @@
         <div class="navbar-collapse-header">
           <div class="row">
             <div class="col-6 collapse-brand">
-              <a href="#">
-                Mentorships.ng
+              <a class="text-white" href="#">
+                <h1 class="text-white">Selbolt</h1>
               </a>
             </div>
             <div class="col-6 collapse-close">
@@ -132,15 +132,15 @@
       <!-- SEARCH -->
       <form method="get"action="{{route('search.mentor')}}" style="margin-top: 100px;">
         @csrf
-        <h2>Search Mentor</h2>
+        <h2>Search Taskers</h2>
         <div class="row">
             <div class="col">
-                <label class="label" style="color: white;">Search by name</label>
+                <label class="label text-black">Search by name</label>
                 <input type="text" class="form-control" placeholder="search by mentors name" name="name">
             </div>
 
             <div class="col">
-                <label class="label" style="color: white;">Select Category</label>
+                <label class="label text-black">Select Category</label>
                 <select class="custom-select" name="category">
                 <option selected disabled>Open this select menu</option>
                     @foreach($categories as $category)
@@ -151,16 +151,16 @@
         </div>
         <div class="row mt-5">
             <div class="col">
-                <label class="label" style="color: white;">Search by tag</label>
+                <label class="label text-black">Search by tag</label>
                 <input type="text" class="form-control" placeholder="search by mentors name" name="tag">
             </div>
             <div class="col">
-                <label class="label" style="color: white;">Search by price</label>
+                <label class="label text-black">Search by price</label>
                 <input type="number" class="form-control" placeholder="search by price" name="price">
             </div>
         </div>
 
-        <input class="btn btn-success mt-3" type="submit" value="Search" />
+        <input class="btn text-black mt-3" type="submit" style="background-color: #C124BB;color: white" value="Search" />
       </form>
       <!-- Page content -->
     </div>
@@ -169,7 +169,7 @@
   <div class="container">
     <!--sign up -->
       <div>
-        <a href="{{route('register')}}" type="button" style="margin-top: 10%;" class="btn btn-success btn-lg btn-block">Sign up</a>
+        <a href="{{route('register')}}" type="button" style="margin-top: 10%;" class="btn text-white btn-lg btn-block">Sign up</a>
       </div>
       
       @foreach($mentors as $mentor)
@@ -203,7 +203,7 @@
                     <hr>
                     <div class="row">
                         @foreach($mentor->activeServices() as $service)
-                        <div class="col-md-4 col-sm-12 col-xs-12">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
                             <button class="btn mt-3" style="pointer-events: none;background-color: #191970;color: white" type="button" disabled>{{$service->name}}</button>
                         </div>
                         @endforeach
@@ -217,7 +217,7 @@
             </div>
             <div class="col-md-2">
                 <div class="card-body">
-                    <a href="{{route('service.mentor', ['id' => $mentor->id])}}" class="btn btn-success">Apply now</a>    
+                    <a href="{{route('service.mentor', ['id' => $mentor->id])}}" style="background-color: #C124BB;color: white" class="btn ">Apply now</a>    
                 </div>
             </div>
         </div>
@@ -229,7 +229,7 @@
           </div>
           <div class="col-lg-4 col-md-6">
             <div class="card-body">
-              <a href="/overview/{{$mentor->username}}" class="btn btn-block btn-success">View Profile</a>
+              <a href="/overview/{{$mentor->username}}" class="btn btn-block ">View Profile</a>
             </div>
           </div>
           <div class="offset-lg-4"></div>
@@ -244,7 +244,7 @@
       <div class="row align-items-center justify-content-xl-between">
         <div class="col-xl-6">
           <div class="copyright text-center text-xl-left text-muted">
-            &copy; 2020 <a href="#" class="font-weight-bold ml-1" target="_blank">Mentorship.ng</a>
+            &copy; 2020 <a href="#" class="font-weight-bold ml-1" target="_blank">Selbolt</a>
           </div>
         </div>
         <div class="col-xl-6">

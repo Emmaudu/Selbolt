@@ -81,9 +81,9 @@ class ResetPasswordController extends Controller
             $this->saveToken($request->password, $token);
 
             if ($this->user instanceof Mentor) {
-                return redirect()->to('/mentor/login');
+                return redirect()->route('login-mentor');
             }else {
-                return redirect()->to('/login');
+                return redirect()->route('login-mentee');
             }
 
         }else{

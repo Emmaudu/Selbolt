@@ -1,6 +1,6 @@
 @extends('auth.authlayout')
 @section('title')
-Mentorship.ng | Mentor | Register
+Selbolt | Tasker | Register
 @endsection
 @section("custom_css")
 
@@ -9,7 +9,40 @@ Mentorship.ng | Mentor | Register
 @stop
 
 @section('content')
-
+<nav id="navbar-main" style="background-color: #C124BB;" class="navbar navbar-horizontal navbar-transparent navbar-main navbar-expand-lg navbar-light">
+    <div class="container">
+      <a class="navbar-brand text-white" href="#">
+        Selbolt
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="navbar-collapse navbar-custom-collapse collapse" id="navbar-collapse">
+        <div class="navbar-collapse-header">
+          <div class="row">
+            <div class="col-6 collapse-close">
+              <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a href="{{route('register')}}" class="nav-link">
+              <span class="nav-link-inner--text text-white">Register as Mentee</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{route('register-mentor')}}" class="nav-link">
+              <span class="nav-link-inner--text text-white">Register as Mentor</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+</nav>
 <div class="container-fluid">
     <div class="row ">
         <div class="col-lg-8 bg-white">
@@ -39,7 +72,7 @@ Mentorship.ng | Mentor | Register
                                                     </ul>
                                                 </div>
                                             @endif
-                                        <h2 id="text-color">Login Here as Mentor</h2>
+                                        <h2 id="text-color">Register Here as Mentor</h2>
                                         <form action="{{route('register.mentor')}}" class="authentication-form" method="POST">
                                             @csrf
                                             <div class="form-group">
@@ -514,7 +547,7 @@ Mentorship.ng | Mentor | Register
                                                 </div>
                                             </div>
                                             <div class="form-group mb-0 text-center">
-                                                <button class="btn btn-block" style="background-color: #191970;" type="submit"> Sign up
+                                                <button class="btn btn-block" style="background-color: #C124BB;" type="submit"> Sign up
                                                 </button>
                                             </div>
                                         </form>
@@ -550,10 +583,10 @@ Mentorship.ng | Mentor | Register
                 </div>
                 <!-- end page -->
             
-        <div class="col-lg-4 d-none d-md-block bg-cover"
-            style="background-color: #191970">
-           
-        </div>
+                <div class="col-lg-4 d-none d-md-block bg-cover"
+                    style="background-image: url(/backend/assets/images/login.svg);">
+
+                </div>
     </div>
 </div>
 

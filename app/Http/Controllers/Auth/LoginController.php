@@ -73,7 +73,7 @@ class LoginController extends Controller
             $user->login_status = "online";
             $user->save();
             
-            return redirect()->intended('/mentee/dashboard');
+            return redirect()->intended(route('mentee.dashboard'));
         }
 
         return redirect()->back()->withInput()->withErrors('Incorrect Login Credentials');

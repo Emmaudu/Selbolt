@@ -1,6 +1,6 @@
 @extends('auth.authlayout')
 @section('title')
-Mentorship.ng | Mentee | Register
+Selbolt | User | Register
 @endsection
 @section("custom_css")
 
@@ -9,7 +9,40 @@ Mentorship.ng | Mentee | Register
 @stop
 
 @section('content')
-
+<nav id="navbar-main" style="background-color: #C124BB;" class="navbar navbar-horizontal navbar-transparent navbar-main navbar-expand-lg navbar-light">
+    <div class="container">
+      <a class="navbar-brand text-white" href="#">
+        Selbolt
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="navbar-collapse navbar-custom-collapse collapse" id="navbar-collapse">
+        <div class="navbar-collapse-header">
+          <div class="row">
+            <div class="col-6 collapse-close">
+              <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a href="{{route('register')}}" class="nav-link">
+              <span class="nav-link-inner--text text-white">Register as Mentee</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{route('register-mentor')}}" class="nav-link">
+              <span class="nav-link-inner--text text-white">Register as Mentor</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+</nav>
 <div class="container-fluid">
     <div class="row ">
         <div class="col-lg-6 bg-white">
@@ -111,7 +144,7 @@ Mentorship.ng | Mentee | Register
                                             </div>
 
                                             <div class="form-group mb-0 text-center">
-                                                <button class="btn btn-block" style="background-color: #191970;" type="submit"> Sign up
+                                                <button class="btn btn-block" style="background-color: #C124BB;" type="submit"> Sign up
                                                 </button>
                                             </div>
                                         </form>

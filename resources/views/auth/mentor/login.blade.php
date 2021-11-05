@@ -1,6 +1,6 @@
 @extends('auth.authlayout')
 @section('title')
-Mentorship.ng | Mentor | Login
+Selbolt | Mentor | Login
 @endsection
 @section("custom_css")
 
@@ -9,10 +9,10 @@ Mentorship.ng | Mentor | Login
 @stop
 
 @section('content')
-<nav id="navbar-main" style="background-color: #191970;" class="navbar navbar-horizontal navbar-transparent navbar-main navbar-expand-lg navbar-light">
+<nav id="navbar-main" style="background-color: #C124BB;" class="navbar navbar-horizontal navbar-transparent navbar-main navbar-expand-lg navbar-light">
     <div class="container">
       <a class="navbar-brand text-white" href="#">
-        Mentorships.ng
+        Selbolt
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -31,12 +31,12 @@ Mentorship.ng | Mentor | Login
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
             <a href="{{route('register')}}" class="nav-link">
-              <span class="nav-link-inner--text text-white">Register as Mentee</span>
+              <span class="nav-link-inner--text text-white">Register as User</span>
             </a>
           </li>
           <li class="nav-item">
             <a href="{{route('register-mentor')}}" class="nav-link">
-              <span class="nav-link-inner--text text-white">Register as Mentor</span>
+              <span class="nav-link-inner--text text-white">Register as Tasker</span>
             </a>
           </li>
         </ul>
@@ -117,7 +117,7 @@ Mentorship.ng | Mentor | Login
                                             </div>
 
                                             <div class="form-group mb-0 text-center">
-                                                <button class="btn btn-block" style="background-color: #191970;" type="submit"> Log In
+                                                <button class="btn btn-block" style="background-color: #C124BB;" type="submit"> Log In
                                                 </button>
                                             </div>
                                         </form>
