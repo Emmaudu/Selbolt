@@ -37,7 +37,7 @@ Profile Page
             <div class ='alert alert-success' style = "margin-bottom:8px">{{$message}}</div>
           @endif
         <div class="card-body">
-          <form action="/mentors/task/{{$userId}}" method="post">
+          <form action="/taskers/task/{{$userId}}" method="post">
             @csrf
             <h6 class="heading-small text-muted mb-4">Add New Todo</h6>
             @if ($errors->any())
@@ -91,7 +91,7 @@ Profile Page
         </div>
         <div class="card-footer text-muted">
           Deadline: {{$task->expiry_date}}
-          <a href="/mentors/mentee/submission/{{$task->id}}/{{$task->user_id}}" class="btn btn-primary">View Submission</a>
+          <a href="/taskers/user/submission/{{$task->id}}/{{$task->user_id}}" class="btn btn-primary">View Submission</a>
           <button data-toggle="modal" data-target="#myModal{{$task->id}}" onclick="summer('todocontent{{$task->id}}')" class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i></button>
           <button data-toggle="modal" data-target="#delete{{$task->id}}" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i></button>
         </div>
@@ -108,7 +108,7 @@ Profile Page
             </button>
           </div>
           <div class="modal-body">
-            <form action="/mentors/task/update/{{$task->id}}" method="post">
+            <form action="/taskers/task/update/{{$task->id}}" method="post">
             @csrf
               <div class="form-group">
                 <label for="message-text" class="col-form-label">Title</label>
@@ -143,7 +143,7 @@ Profile Page
             </button>
           </div>
           <div class="modal-body">
-            <form action="/mentors/task/delete/{{$task->id}}" method="post">
+            <form action="/taskers/task/delete/{{$task->id}}" method="post">
             @csrf
               <div class="form-group">
                 <label for="message-text" class="col-form-label">Are you sure want to delete this task ?</label>

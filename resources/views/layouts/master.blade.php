@@ -59,7 +59,7 @@
   <body style="background-color: #f8f8ff;">
 		
 		<div class="wrapper d-flex align-items-stretch">
-			<nav id="sidebar" class="active">
+			<nav id="sidebar" class="active" style="background-color: #C124BB;">
 				<div class="custom-menu">
 					<button type="button" id="sidebarCollapse" class="btn btn-primary">
 	          <i class="fa fa-bars"></i>
