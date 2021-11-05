@@ -13,9 +13,20 @@ use Illuminate\Support\Facades\Hash as FacadesHash;
 use Illuminate\Support\Facades\Mail as FacadesMail;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
+use App\Http\Service\NewsletterService;
+use App\Http\Service\EmailService;
+
 
 class RegisterController extends Controller
 {
+    protected $mailchip;
+    protected $emailService;
+
+    public function __construct(NewsletterService $newsletterService, EmailService $emailService)
+    {
+        $this->mailchip = $newsletterService;
+        $this->emailService = $emailService;
+    }
     /**
      * register user function
      */
@@ -39,18 +50,17 @@ class RegisterController extends Controller
             
             if ($validator->passes()) {
                 $token = Str::random(6);
-                $data = [
+        
+                $customData = [
                     'email' => $request->email,
-                    'token' => $token,
+                    'token' => $token
                 ];
+        
+                $to = $request->email;
+                $subject = 'Account | Verification';
+                $view = 'mail.verify-email';
                 
-               /* FacadesMail::send(
-                    'verify-email',
-                    ["data" => $data],
-                    function ($m)use($data) {
-                    $m->from('mentorship@gmail.com');
-                    $m->to($data['email'])->subject('Please confirm you mail');
-                });*/
+               $this->emailService->send($customData, $to, $subject, $view);
 
                 User::create([
                     'first_name' => $request->first_name,
@@ -85,11 +95,13 @@ class RegisterController extends Controller
         if (!empty($user)) {
             $user->verification_code = null;
             $user->save();
+            $this->mailchip->subscribe($user->email, $user->first_name, $user->last_name, 'mentee');
+
             return redirect()->to('/login');
         }elseif (!empty($mentor)) {
             $mentor->verification_code = null;
             $mentor->save();
-            return redirect()->to('/mentor/login');
+            return redirect()->to('/tasker/login');
         }
         return redirect()->back()->withInput()->withErrors(["error" => "Invalid verification code"]);
        
