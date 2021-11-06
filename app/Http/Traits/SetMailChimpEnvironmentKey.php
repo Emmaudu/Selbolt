@@ -16,7 +16,7 @@ trait SetMailChimpEnvironmentKey
 
     public function setKeyOnEnvironmentChange(){
         
-        if(app()->environment('local')){
+        if(app()->environment('production')){
             Config::set('newsletter.lists.subscribers.id', $this->audienceKey);
         }
 
