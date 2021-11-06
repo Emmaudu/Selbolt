@@ -11,13 +11,21 @@ use Illuminate\Support\Facades\Validator;
 use App\Models\Transaction;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
+use App\Http\Service\NewsletterService;
+use App\Models\User;
+use App\Http\Traits\SetMailChimpEnvironmentKey;
 
 class TransactionController extends Controller
 {
+    use SetMailChimpEnvironmentKey;
+    
+    protected $mailchip;
+
     //
-    public function __construct(){
+    public function __construct(NewsletterService $newsletterService){
         //$this->middleware('cors');
         $this->middleware('auth:mentors')->except('savePaymentDetails');
+        $this->mailchip = $newsletterService;
     }
 
     public function subaccountView(){
@@ -221,6 +229,19 @@ class TransactionController extends Controller
         $transaction->payment_ref = $payment_ref;
         $transaction->services = json_encode($services);
         $transaction->save();
+
+        //user
+        $user = User::where('user_id', $user_id)->first();
+
+        $tag = 'mentee';
+
+        //set mentors key
+        $this->setAudienceKey('aee0b64448');
+
+        //
+        $this->setKeyOnEnvironmentChange();
+
+        if(!$this->mailchip->subscribe($user->email, $user->first_name, $user->last_name, $tag)) throw new Exception("Something went wrong");
 
         return response()->json([
             "message" => "success"

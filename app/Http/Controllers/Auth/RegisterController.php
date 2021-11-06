@@ -15,10 +15,12 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use App\Http\Service\NewsletterService;
 use App\Http\Service\EmailService;
-
+use App\Http\Traits\SetMailChimpEnvironmentKey;
 
 class RegisterController extends Controller
 {
+    use SetMailChimpEnvironmentKey;
+
     protected $mailchip;
     protected $emailService;
 
@@ -27,6 +29,7 @@ class RegisterController extends Controller
         $this->mailchip = $newsletterService;
         $this->emailService = $emailService;
     }
+
     /**
      * register user function
      */
@@ -53,7 +56,8 @@ class RegisterController extends Controller
         
                 $customData = [
                     'email' => $request->email,
-                    'token' => $token
+                    'token' => $token,
+                    'subject' => 'Account | Verification'
                 ];
         
                 $to = $request->email;
@@ -95,12 +99,19 @@ class RegisterController extends Controller
         if (!empty($user)) {
             $user->verification_code = null;
             $user->save();
+
+            //set mentors key
+            $this->setAudienceKey('5fd10dc8c4');
+            //
+            $this->setKeyOnEnvironmentChange();
+
             $this->mailchip->subscribe($user->email, $user->first_name, $user->last_name, 'mentee');
 
             return redirect()->to('/login');
         }elseif (!empty($mentor)) {
             $mentor->verification_code = null;
             $mentor->save();
+            
             return redirect()->to('/tasker/login');
         }
         return redirect()->back()->withInput()->withErrors(["error" => "Invalid verification code"]);

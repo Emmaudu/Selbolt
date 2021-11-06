@@ -10,5 +10,5 @@ interface EmailInterface{
      * 
      */
     public function send($customData, $to, $subject, $view);
-
+    
 }

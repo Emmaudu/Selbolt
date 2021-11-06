@@ -27,3 +27,4 @@ Route::get('user', [App\Http\Controllers\ConnectionController::class, 'user']);
 
 Route::post('publish/messages', [App\Http\Controllers\ConnectionController::class, 'sendMessage']);
 
+Route::post('/upload', [App\Http\Controllers\ConnectionController::class, 'uploadFile']);

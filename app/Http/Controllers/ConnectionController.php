@@ -169,6 +169,38 @@ class ConnectionController extends Controller
         $id = auth()->guard($this->guard)->user()->custom_id;
 
         $body = $request->message;
+        // $content = $request->message;
+        // $dom = new \DomDocument();
+        // $dom->loadHtml($content, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD); 
+        
+        // $images = $dom->getElementsByTagName('img');
+        
+        // foreach($images as $k => $img){
+        //     $data = $img->getAttribute('src');
+
+        //     list($type, $data) = explode(';', $data);
+        //     list(, $data)      = explode(',', $data);
+        //     $data = base64_decode($data);
+
+        //     $image_name= "/img/" . time().$k.'.png';
+
+        //     $public_id = "12345/".time().$k; // for cloudinary piblic id;
+
+        //     $path = public_path() . $image_name;
+        //     file_put_contents($path, $data);
+
+        //     $filename = $path;
+
+        //     // Upload file to cloudinary for summernote access
+        //     \Cloudder::upload($filename);
+        //     //get response
+            
+        //     $img->removeAttribute('src');
+        //     $img->setAttribute('src', \Cloudder::getResult()['url']);
+        //     \File::delete($path);
+        // }
+        // //end summernote
+        // $content = $dom->saveHTML();
         
         $time = Carbon::now();
         
@@ -255,6 +287,9 @@ class ConnectionController extends Controller
     }
 
     public function guard(){
+        $guards = ['mentors', 'admins', 'webs'];
+
+        return collect($guards)->first(fn ($guard) => auth($guard)->check());
         //$this->guard();
         if (auth()->user() instanceof Mentor) {
             $this->guard = 'mentors';

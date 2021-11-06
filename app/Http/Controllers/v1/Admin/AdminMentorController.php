@@ -9,9 +9,13 @@ use App\Models\Admin;
 use Exception;
 use App\Http\Service\NewsletterService;
 use App\Http\Service\EmailService;
+use Illuminate\Support\Facades\Config;
+use App\Http\Traits\SetMailChimpEnvironmentKey;
 
 class AdminMentorController extends Controller
 {
+    use SetMailChimpEnvironmentKey;
+
     protected $mailchip;
     protected $emailService;
 
@@ -125,6 +129,13 @@ class AdminMentorController extends Controller
         $to = $mentor->email;
         $subject = 'Account | Approved';
         $view = 'mail.mentor-approve';
+
+        //set mentors key
+        $this->setAudienceKey('e0b0742440');
+
+        //
+        $this->setKeyOnEnvironmentChange();
+
         //send mail
         $this->emailService->send($customData, $to, $subject, $view);
         //subscribe user to mailchip
@@ -148,7 +159,11 @@ class AdminMentorController extends Controller
         //send mail
         $this->emailService->send($customData, $to, $subject, $view);
 
-        return redirect()->to('/admin/mentors/registration/lists');
+        return redirect()->to('/admin/taskers/registration/lists');
     }
+    /**
+     * set audience key
+     */
+
 
 }

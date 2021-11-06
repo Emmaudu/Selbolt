@@ -227,9 +227,9 @@
                 tx_ref: data.tx_ref,
                 services: services
             }).then(function($data){
-                window.location.href = '/mentee/dashboard';
+                window.location.href = '/user/dashboard';
             }).catch(function($data){
-                window.location.href = '/mentee/dashboard';
+                window.location.href = '/user/dashboard';
             });
           },
           customizations: {
