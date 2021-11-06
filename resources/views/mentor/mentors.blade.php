@@ -92,12 +92,12 @@
           </li>
           <li class="nav-item">
             <a href="{{route('register')}}" class="nav-link">
-              <span class="nav-link-inner--text">Register as Mentee</span>
+              <span class="nav-link-inner--text">Register as User</span>
             </a>
           </li>
           <li class="nav-item">
             <a href="{{route('register-mentor')}}" class="nav-link">
-              <span class="nav-link-inner--text">Register as Mentor</span>
+              <span class="nav-link-inner--text">Register as Tasker</span>
             </a>
           </li>
         </ul>
@@ -136,7 +136,7 @@
         <div class="row">
             <div class="col">
                 <label class="label text-black">Search by name</label>
-                <input type="text" class="form-control" placeholder="search by mentors name" name="name">
+                <input type="text" class="form-control" placeholder="search by taskers name" name="name">
             </div>
 
             <div class="col">
@@ -152,7 +152,7 @@
         <div class="row mt-5">
             <div class="col">
                 <label class="label text-black">Search by tag</label>
-                <input type="text" class="form-control" placeholder="search by mentors name" name="tag">
+                <input type="text" class="form-control" placeholder="search by taskers name" name="tag">
             </div>
             <div class="col">
                 <label class="label text-black">Search by price</label>
