@@ -63,7 +63,7 @@ function Sidebar() {
 
         const connectToCentrifugo = (channel, token) => {
             //connection to centrifugo
-            var centrifuge = new Centrifuge('ws://localhost:8000/connection/websocket');
+            var centrifuge = new Centrifuge('ws://selbolt.com:8000/connection/websocket');
             //subscribe user to receivers channel
             centrifuge.setToken(token);
             console.log(token);
