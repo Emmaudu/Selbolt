@@ -64,11 +64,13 @@ class LoginController extends Controller
                 'verify-email',
                 ["data" => $data],
                 function ($m)use($data) {
-                $m->from('mentorship@gmail.com');
+                $m->from('tryselbolt@gmail.com');
                 $m->to($data['email'])->subject('Please confirm you mail');
             });
+            $user->verification_code = $token;
+            $user->save();
 
-            return redirect()->back()->withInput()->withErrors('Please check your email for verification code');
+            return redirect()->to('/verify-mail');
         }
 
         if (Auth::guard('web')->attempt($credentials)) {
