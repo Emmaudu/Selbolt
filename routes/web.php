@@ -155,3 +155,6 @@ Route::post('publish/messages', [App\Http\Controllers\ConnectionController::clas
 Route::post('/pending-transaction/flutterwave', [App\Http\Controllers\HomeController::class, 'saveTransaction']);
 
 Route::post('/transaction/webhook', [App\Http\Controllers\WebhookController::class, 'transactionWebhook']);
+
+Route::post('/publish', [App\Http\Repositories\RTC\Centrifugo::class, 'publish']);
+

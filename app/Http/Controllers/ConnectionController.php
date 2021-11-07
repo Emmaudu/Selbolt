@@ -11,6 +11,7 @@ use Illuminate\Support\Carbon;
 use App\Models\Messages;
 use App\Models\User;
 use App\Http\Middleware\CorsOrgin;
+use App\Http\Repositories\RTC\Centrifugo as RTCCentrifugo;
 use App\Http\Service\EmailService;
 use App\Models\Admin;
 use App\Models\OneChat;
@@ -21,12 +22,13 @@ class ConnectionController extends Controller
 {
     protected $emailService;
     protected $guard;
+    protected $rtccentrifugo;
 
-    public function __construct(EmailService $emailService){
+    public function __construct(EmailService $emailService, RTCCentrifugo $rtccentrifugo){
         // $this->middleware('corss');$this->guard();
         $this->middleware('auth:web,mentors');
         $this->emailService = $emailService;
-
+        $this->rtccentrifugo = $rtccentrifugo;
     }
 
     public function user(Centrifugo $centrifugo){
@@ -70,7 +72,7 @@ class ConnectionController extends Controller
 
         //publish to centrifugo
         $chatChannel = $chat->channel;
-        $centrifugo->publish($chatChannel, ["messages" => $messages]);
+        $this->rtccentrifugo->publish($chatChannel, ["messages" => $messages]);
 
         return response()->json([
            "messages" => $messages
@@ -86,7 +88,7 @@ class ConnectionController extends Controller
         
         $receivers = auth()->guard($this->guard)->user()->chatMembers();
 
-        $centrifugo->publish('common-room', ["receivers" => $receivers]);
+        //$this->rtccentrifugo->publish($chatChannel, ["messages" => $messages]);
 
         return response()->json([
             "receivers" => $receivers,
@@ -213,9 +215,8 @@ class ConnectionController extends Controller
             ->orwhere([['sender_id', $receiver_id], ['sender_type', $receiver_type], ['receiver_id', $id], ['receiver_type', $type]])->orderBy('created_at')->get();
 
         
-        $centrifugo->publish($chatChannel, [
-            "messages" => $messages
-        ]);
+        $this->rtccentrifugo->publish($chatChannel, ["messages" => $messages]);
+        
 
         //send mail if receiver is offline
         $receiver = $receiver_type::where('id', $checkUser[1])->first();
