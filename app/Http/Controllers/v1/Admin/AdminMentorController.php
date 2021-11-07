@@ -141,7 +141,7 @@ class AdminMentorController extends Controller
         //subscribe user to mailchip
         if(!$this->mailchip->subscribe($mentor->email, $mentor->first_name, $mentor->last_name, $tag)) throw new Exception("Something went wrong");
 
-        return redirect()->to('/admin/mentors/registration/lists');
+        return redirect()->to('/admin/taskers/registration/lists');
     }
 
     public function reject($id){
