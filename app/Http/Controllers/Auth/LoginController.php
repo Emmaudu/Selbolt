@@ -67,6 +67,8 @@ class LoginController extends Controller
                 $m->from('tryselbolt@gmail.com');
                 $m->to($data['email'])->subject('Please confirm you mail');
             });
+            $user->verification_code = $token;
+            $user->save();
 
             return redirect()->to('/verify-mail');
         }
