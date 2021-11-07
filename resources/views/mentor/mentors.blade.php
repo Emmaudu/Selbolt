@@ -65,21 +65,19 @@
             </div>
           </div>
         </div>
-        @auth()
+        @if(auth()->guard('web')->check())
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
             <a href="{{route('mentee.dashboard')}}""" class="nav-link">
               <span class="nav-link-inner--text">Dashboard</span>
             </a>
           </li>
+        </ul>
+        @elseif(auth()->guard('mentors')->check())
+        <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a href="{{route('register')}}" class="nav-link">
-              <span class="nav-link-inner--text">Register as Mentee</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{{route('register-mentor')}}" class="nav-link">
-              <span class="nav-link-inner--text">Register as Mentor</span>
+            <a href="{{route('mentee.dashboard')}}""" class="nav-link">
+              <span class="nav-link-inner--text">Dashboard</span>
             </a>
           </li>
         </ul>
@@ -101,7 +99,7 @@
             </a>
           </li>
         </ul>
-        @endauth
+        @endif
         <hr class="d-lg-none" />
         <ul class="navbar-nav align-items-lg-center ml-lg-auto">
           <li class="nav-item">
@@ -217,7 +215,7 @@
             </div>
             <div class="col-md-2">
                 <div class="card-body">
-                    <a href="{{route('service.mentor', ['id' => $mentor->id])}}" style="background-color: #C124BB;color: white" class="btn ">Apply now</a>    
+                    <a href="/overview/{{$mentor->username}}" style="background-color: #C124BB;color: white" class="btn ">Apply now</a>    
                 </div>
             </div>
         </div>
@@ -229,7 +227,7 @@
           </div>
           <div class="col-lg-4 col-md-6">
             <div class="card-body">
-              <a href="/overview/{{$mentor->username}}" class="btn btn-block ">View Profile</a>
+              <a href="/overview/{{$mentor->username}}" class="btn btn-block" style="background-color: #C124BB;">View Profile</a>
             </div>
           </div>
           <div class="offset-lg-4"></div>

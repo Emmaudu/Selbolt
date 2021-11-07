@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('title')
-Mentee Page
+User Page
 @endsection
 @section('link')
 <link rel="stylesheet" href="{{asset('main.css')}}">
@@ -8,8 +8,8 @@ Mentee Page
 <!-- Page content -->
 @section('content')
 <div class="container">
-<h1 id="text-color" class="p2">Mentees</h1>
-<i id="text-color">click the box to view mentee</i>
+<h1 id="text-color" class="p2">Users</h1>
+<i id="text-color">click the box to view user details</i>
 <nav class="mb-3 mt-3">
   <div class="nav nav-tabs" id="nav-tab" role="tablist">
     <a class="nav-item nav-link active" style="margin: auto;" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Active Mentees</a>

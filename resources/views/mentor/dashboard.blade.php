@@ -8,7 +8,7 @@ Dashboard
   <div style="color: #191970"><b>Welcome, {{auth()->user()->fullname()}}<b></div>
     <div class="row">
         <div class="col-lg">
-            <div id="chartContainer" style="height: 250px;width: 100%"></div>
+           <!-- <div id="chartContainer" style="height: 250px;width: 100%"></div> -->
         </div>
     </div>
     <div class="row">
@@ -52,7 +52,7 @@ Dashboard
                 </div>
                 <p class="mt-3 mb-0 text-sm">
                 <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> {{auth()->user()->mentees()->count()}}</span>
-                <span class="text-nowrap">mentees</span>
+                <span class="text-nowrap">users</span>
                 </p>
             </div>
             </div>

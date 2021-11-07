@@ -21,6 +21,7 @@ class UserController extends Controller
     public function __construct(){
         //$this->middleware('cors');
         $this->middleware('auth');
+        //$this->middleware('auth')->only('serviceView');
     }
 
     public function user(){
@@ -119,8 +120,12 @@ class UserController extends Controller
     }
 
     public function serviceView(Request $request, $id){
-        $mentors =  Mentor::whereId($id)->first();
-        return view('mentor.service')->with(['mentors' => $mentors]);
+        $mentor =  Mentor::whereId($id)->first();
+        if ($mentor->subaccount_id == null) {
+            return abort(404);
+        }
+
+        return view('mentor.service')->with(['mentors' => $mentor]);
     }
 
     public function profile(){
@@ -196,16 +201,32 @@ class UserController extends Controller
     public function saveAnswers(Request $request)
     {
         $username = session()->get('username');
-        
+
         $mentor = Mentor::firstWhere('username', $username);
-        foreach ($request->answers as $key => $value) {
+
+        if ($request->exists('answers')) {
+            foreach ($request->answers as $key => $value) {
+                Answer::create([
+                    "question_id" => $key,
+                    "user_id" => auth()->user()->id,
+                    "answer" => $value[0],
+                    "mentor_id" => $mentor->id
+                ]);
+            }
+        }else {
+            $question = Question::create([
+                'content' => $request->question,
+                'mentor_id' => $mentor->id
+            ]);
+    
             Answer::create([
-                "question_id" => $key,
+                "question_id" => $question->id,
                 "user_id" => auth()->user()->id,
-                "answer" => $value[0],
+                "answer" => $request->answer,
                 "mentor_id" => $mentor->id
             ]);
         }
+
         return view('success');
     }
 

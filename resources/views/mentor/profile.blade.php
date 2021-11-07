@@ -36,13 +36,13 @@ Profile Page
             @endif
             <div class="pl-lg-4">
               <div class="mt-3 mb-3">
-                <span>Payment Link: </span><input disabled type="text" value="http://localhost:8001/mentors/{{$user->id}}/service" id="text-to-copy" />
+                <span>Payment Link: </span><input disabled type="text" value="https://selbolt.com/taskers/{{$user->id}}/service" id="text-to-copy" />
                 
                 <span id="copied-text" style="display: none;">Copied!</span>
               </div>
 
               <div class="mt-3 mb-3">
-                <span>Profile Url: <input value="http://localhost:8001/overview/{{$user->username}}" disabled/> </span>
+                <span>Profile Url: <input value="https://selbolt.com/overview/{{$user->username}}" disabled/> </span>
               </div>
             
             <div class="row">

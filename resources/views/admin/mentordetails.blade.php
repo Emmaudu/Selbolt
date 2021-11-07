@@ -142,7 +142,7 @@ Tasks
                                             <span class="p2" id="text-color">{{$mentee->fullname()}}</span>
                                         </div>
                                         <div class="col-3">
-                                            <span class="float-right" style="color: blue;"><a href="/admin/mentees/details/{{$mentee->id}}">view mentee</a></span>
+                                            <span class="float-right" style="color: blue;"><a href="/admin/user/details/{{$mentee->id}}">view mentee</a></span>
                                         </div>
                                     </div>
                             @endforeach

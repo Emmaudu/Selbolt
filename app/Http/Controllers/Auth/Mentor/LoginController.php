@@ -8,9 +8,11 @@ use App\Models\Mentor;
 use Auth;
 use Illuminate\Support\Facades\Mail as FacadesMail;
 use Illuminate\Support\Str;
+use App\Http\Traits\AuthorizeUserView;
 
 class LoginController extends Controller
 {
+    use AuthorizeUserView;
     
     public function __construct()
     {
@@ -18,6 +20,7 @@ class LoginController extends Controller
     }
 
     public function index(){
+        $this->checkAuthentication();
         return view('auth.mentor.login');
     }
 
@@ -32,17 +35,6 @@ class LoginController extends Controller
 
         $credentials = $request->only('email', 'password');
         $mentor = Mentor::where('email', $request->email)->first();
-        if($mentor && $mentor->verification_code != null){
-            FacadesMail::send(
-                'verify-email',
-                ["data" => $data],
-                function ($m)use($data) {
-                $m->from('mentorship@gmail.com');
-                $m->to($data['email'])->subject('Please confirm you mail');
-            });
-
-            return redirect()->back()->withInput()->withErrors('Please check your email for verification code');
-        }
         
         if (Auth::guard('mentors')->attempt($credentials) && $mentor->is_approve == 1) {
             $mentor->login_status = "online";
@@ -51,7 +43,7 @@ class LoginController extends Controller
             return redirect()->intended(route('mentor.dashboard'));
         }
 
-        return redirect()->back()->withInput()->withErrors('Incorrect Login Credentials');
+        return redirect()->back()->withInput()->withErrors('Incorrect Credentials or Yet to be approved!');
     }
 
     public function logout(){

@@ -13,7 +13,7 @@ Tasks
     <div class="row">
       @foreach($users as $user)
           <div class="col-lg-4">
-            <a href="/admin/mentors/registration/{{$user->id}}">
+            <a href="/admin/taskers/registration/{{$user->id}}">
             <div class="pt-3">
               <div class="two">
                   <div class="d-flex justify-content-end px-3 pt-1"><i class="mdi mdi-star-outline pr-1 star"></i><i class="mdi mdi-dots-horizontal dot"></i></div>

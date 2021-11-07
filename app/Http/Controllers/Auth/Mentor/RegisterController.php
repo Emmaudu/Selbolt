@@ -13,20 +13,24 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use App\Models\Category;
+use App\Http\Traits\AuthorizeUserView;
 
 class RegisterController extends Controller
 {
-    
+    use AuthorizeUserView;
     /**
      * register user function
      */
     public function index(){
+        $this->checkAuthentication();
         $categories = Category::all();
         $services = Service::all();
         return view('auth.mentor.register', compact('categories', 'services'));
     }
 
     public function verifyMailView(){
+        $this->checkAuthentication();
+
         return view('verify-user');
     }
 
@@ -96,7 +100,7 @@ class RegisterController extends Controller
                     $mentor->services()->attach($i, ["price" => $service[$i-1]]);
                 }
 
-                return redirect()->to('/verify-mail');
+                return redirect()->to('/tasker/login');
     
             }
             return redirect()->back()->withInput()->withErrors($validator->errors());

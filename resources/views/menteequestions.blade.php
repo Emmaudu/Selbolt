@@ -47,7 +47,7 @@
   <nav id="navbar-main" style="background-color: #C124BB;position: fixed" class="navbar navbar-horizontal navbar-transparent navbar-main navbar-expand-lg navbar-light">
     <div class="container">
       <a class="navbar-brand" href="#">
-        Mentorships.ng
+        Selbolt
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -57,7 +57,7 @@
           <div class="row">
             <div class="col-6 collapse-brand">
               <a href="#">
-                Mentorships.ng
+                Selbolt
               </a>
             </div>
             <div class="col-6 collapse-close">
@@ -70,18 +70,8 @@
         </div>
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a href="{{route('login-mentee')}}" class="nav-link">
-              <span class="nav-link-inner--text">Login</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{{route('register')}}" class="nav-link">
-              <span class="nav-link-inner--text">Register as Mentee</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{{route('register-mentor')}}" class="nav-link">
-              <span class="nav-link-inner--text">Register as Mentor</span>
+            <a href="/taskers" class="nav-link">
+              <span class="nav-link-inner--text">BrowserTasker</span>
             </a>
           </li>
         </ul>
@@ -115,6 +105,7 @@
     <h2 class="mt-5 pt-5">Please answer the following questions</h2>
     <form action="/overview/pay/approve" method="POST" class="mb-5">
     @csrf
+      @if(!$questions->isEmpty())
         @foreach ($questions as $question)
         <div class="form-group">
             <label id="text-color" class="form-control-label">{!! $question->content !!}</label>
@@ -123,7 +114,16 @@
             </div>
         </div>
         @endforeach
-        <input type="submit" class="btn btn-success btn-block" value="Pay">
+      @else
+      <div class="form-group">
+            <label id="text-color" class="form-control-label">Introduce yourself and briefly explain what you expect from this tasker ?</label>
+            <div class="input-group input-group-merge">
+              <input type="hidden" value="Introduce yourself and briefly explain what you expect from this tasker ?" name="question" />
+                <textarea required class="form-control" name="answer"></textarea>
+            </div>
+        </div>
+      @endif
+        <input type="submit" class="btn btn-success btn-block" value="Apply Now">
     </form>
     
   </div>

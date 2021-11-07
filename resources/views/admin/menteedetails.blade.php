@@ -95,7 +95,7 @@ Tasks
                                             <span class="p2" id="text-color">{{$mentor->fullname()}}</span>
                                         </div>
                                         <div class="col-3">
-                                            <span class="float-right" style="color: blue;"><a href="/admin/mentors/details/{{$mentor->id}}">view mentor</a></span>
+                                            <span class="float-right" style="color: blue;"><a href="/admin/taskers/details/{{$mentor->id}}">view mentor</a></span>
                                         </div>
                                     </div>
                             @endforeach

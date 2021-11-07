@@ -10,7 +10,7 @@ use App\Models\User;
 use Auth;
 use Illuminate\Support\Facades\Mail as FacadesMail;
 use Illuminate\Support\Str;
-
+use App\Http\Traits\AuthorizeUserView;
 class LoginController extends Controller
 {
     /*
@@ -24,7 +24,7 @@ class LoginController extends Controller
     |
     */
 
-    use AuthenticatesUsers;
+    use AuthenticatesUsers, AuthorizeUserView;
 
     /**
      * Where to redirect users after login.
@@ -44,6 +44,8 @@ class LoginController extends Controller
     }
 
     public function index(){
+        $this->checkAuthentication();
+        
         return view('auth.login');
     }
 

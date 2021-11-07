@@ -56,7 +56,7 @@ Dashboard
                 </div>
             </div>
     </div>
-    <a class="btn btn-success btn-lg" href="/admin/approve/mentors/{{$mentor->id}}">Accept</a><a class="btn btn-danger btn-lg float-right" href="/admin/reject/mentors/{{$mentor->id}}">Reject</a>
+    <a class="btn btn-success btn-lg" href="/admin/approve/taskers/{{$mentor->id}}">Accept</a><a class="btn btn-danger btn-lg float-right" href="/admin/reject/taskers/{{$mentor->id}}">Reject</a>
 </div>
 @endsection
 @section('scripts')

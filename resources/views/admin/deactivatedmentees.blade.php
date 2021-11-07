@@ -30,10 +30,10 @@ Tasks
                   <div class="d-flex justify-content-between px-3 align-items-center pb-3">
                   <div class="d-flex justify-content-start align-items-center"> <i class="mdi mdi-calendar-clock date"></i></div>
                       <div class="d-flex justify-content-start align-items-center">
-                        <a href="/admin/mentees/restore/{{$deactivatedUser->id}}" class="btn btn-info" style="background-color: #191970;color: white">Activate</a>
+                        <a href="/admin/users/restore/{{$deactivatedUser->id}}" class="btn btn-info" style="background-color: #191970;color: white">Activate</a>
                       </div>
                       <div class="d-flex justify-content-start align-items-center">
-                        <a href="/admin/mentees/delete/{{$deactivatedUser->id}}" class="btn btn-info" style="background-color: #191970;color: white">Delete</a>
+                        <a href="/admin/users/delete/{{$deactivatedUser->id}}" class="btn btn-info" style="background-color: #191970;color: white">Delete</a>
                       </div>
                     <div class="d-flex justify-content-end"> <img src="https://img.icons8.com/bubbles/50/000000/girl-and-playing-card.png" width="20" class="img2" /> <img src="https://img.icons8.com/bubbles/50/000000/short-hair-girl-question-mark.png" width="20" class="img3" /> </div>
                   </div>
@@ -47,7 +47,7 @@ Tasks
     @else
         <div class="card mt-3">
             <div class="card-header">
-                <p>No mentees yet!</p>
+                <p>No users yet!</p>
             </div>
         </div>
     @endif

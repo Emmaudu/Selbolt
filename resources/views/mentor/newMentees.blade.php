@@ -9,7 +9,7 @@ Mentee Page
 @section('content')
 <div class="container">
 
-<h1 id="text-color" class="p2">New Mentees</h1>
+<h1 id="text-color" class="p2">New Users</h1>
 <div>
     <div class="row">
     @foreach($users as $user)
@@ -44,11 +44,11 @@ Mentee Page
           <div class="modal-body">
             @foreach($user->user->answers as $answer)
             <div class="card card-body">
-                <div id="text-color" class="">{!! $answer->question->content !!}</div>
-                <i class="">{{$answer->answer}}</i>
+                <div id="text-color" class=""><h5><b>{!! $answer->question->content !!}</b></h5></div>
+                <span class="">{{$answer->answer}}</span>
             </div>
             @endforeach
-            <form action="/mentors/approve/{{$user->user->id}}" method="post">
+            <form action="/taskers/approve/{{$user->user->id}}" method="post">
                 @csrf
                 <div class="form-group">
                     <label for="message-text" class="col-form-label">Are you sure want approve this mentee ?</label>

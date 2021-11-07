@@ -12,7 +12,7 @@ Dashboard
     <div class="row">
         <div class="offset-1"></div>
         <div class="col-lg">
-            <div id="chartContainer" style="height: 250px;width: 100%"></div>
+           <!-- <div id="chartContainer" style="height: 250px;width: 100%"></div>-->
         </div>
     </div>
     <div class="row">

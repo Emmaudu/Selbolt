@@ -608,7 +608,7 @@ class MentorController extends Controller
     {
         //query unique answer so as to get unique user
         $users = Answer::where('mentor_id', auth()->user()->id)->with('user')->get()->unique('user_id');
-        
+        //dd($users);
         return view('mentor.newMentees', compact('users'));
     }
 

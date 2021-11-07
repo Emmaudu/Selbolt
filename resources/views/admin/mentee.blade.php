@@ -13,7 +13,7 @@ Tasks
     <div class="row">
       @foreach($users as $user)
           <div class="col-lg-4">
-          <a href="/admin/mentees/details/{{$user->id}}">
+          <a href="/admin/users/details/{{$user->id}}">
               <div class="pt-3">
                   <div class="two">
                       <div class="d-flex justify-content-end px-3 pt-1"><i class="mdi mdi-star-outline pr-1 star"></i><i class="mdi mdi-dots-horizontal dot"></i></div>
@@ -29,7 +29,7 @@ Tasks
                       <div class="d-flex justify-content-start px-3 align-items-center"> <i class="mdi mdi-view-comfy task"></i> <span class="quote2 pl-2">Date Joined:{{$user->created_at}}</span> </div>
                       <div class="d-flex justify-content-between px-3 align-items-center pb-3">
                         <div class="d-flex justify-content-start align-items-center">
-                            <a href="/admin/mentees/deactivate/{{$user->id}}" class="btn btn-info" style="background-color: #191970;color: white">Deactivate User</a>
+                            <a href="/admin/users/deactivate/{{$user->id}}" class="btn btn-info" style="background-color: #191970;color: white">Deactivate User</a>
                         </div>
                         <div class="d-flex justify-content-end"> <img src="https://img.icons8.com/bubbles/50/000000/girl-and-playing-card.png" width="20" class="img2" /> <img src="https://img.icons8.com/bubbles/50/000000/short-hair-girl-question-mark.png" width="20" class="img3" /> </div>
                       </div>

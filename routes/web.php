@@ -153,3 +153,5 @@ Route::get('/receiver', [App\Http\Controllers\ConnectionController::class, 'rece
 Route::post('publish/messages', [App\Http\Controllers\ConnectionController::class, 'sendMessage']);
 
 Route::post('/pending-transaction/flutterwave', [App\Http\Controllers\HomeController::class, 'saveTransaction']);
+
+Route::post('/transaction/webhook', [App\Http\Controllers\WebhookController::class, 'transactionWebhook']);

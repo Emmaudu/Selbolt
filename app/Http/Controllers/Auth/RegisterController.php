@@ -16,10 +16,11 @@ use Illuminate\Support\Str;
 use App\Http\Service\NewsletterService;
 use App\Http\Service\EmailService;
 use App\Http\Traits\SetMailChimpEnvironmentKey;
+use App\Http\Traits\AuthorizeUserView;
 
 class RegisterController extends Controller
 {
-    use SetMailChimpEnvironmentKey;
+    use SetMailChimpEnvironmentKey, AuthorizeUserView;
 
     protected $mailchip;
     protected $emailService;
@@ -34,14 +35,18 @@ class RegisterController extends Controller
      * register user function
      */
     public function index(){
+        $this->checkAuthentication();
+        //return abort(403);
         return view('auth.register');
     }
 
     public function verifyMailView(){
+        $this->checkAuthentication();
         return view('verify-user');
     }
 
     public function register(Request $request){
+
         try {
             $validator = Validator::make($request->all(), [
                 'first_name' => 'required|alpha',
@@ -88,6 +93,7 @@ class RegisterController extends Controller
     }
 
     public function verifyMail(Request $request){
+        $this->checkAuthentication();
         $token = $request->token;
 
         if(empty($token)){
