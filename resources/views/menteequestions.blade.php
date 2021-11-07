@@ -127,7 +127,7 @@
     </form>
     
   </div>
-  <footer class="mt-5" id="footer-main">
+ <!-- <footer class="mt-5" id="footer-main">
     <div class="container">
       <div class="row align-items-center justify-content-xl-between">
         <div class="col-xl-6">
@@ -153,7 +153,7 @@
         </div>
       </div>
     </div>
-  </footer>
+  </footer> -->
   <script src="{{asset('assets/vendor/jquery/dist/jquery.min.js')}}"></script>
   <script src="{{asset('assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>
   <script src="{{asset('assets/vendor/js-cookie/js.cookie.js')}}"></script>
