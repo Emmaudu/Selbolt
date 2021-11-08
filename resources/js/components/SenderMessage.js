@@ -7,7 +7,7 @@ const SenderMessage = ({messages}) => {
     return (
         <li className="clearfix">
             
-            <div className="message other-message float-right">{parse(messages.body)}</div>
+            <div className="message other-message float-right"  dangerouslySetInnerHTML={{__html: messages.body}} ></div>
         </li>
     )
 }
