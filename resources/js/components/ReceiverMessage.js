@@ -7,7 +7,7 @@ const ReceiverMessage = ({messages}) => {
     return (
         <li className="clearfix">
             
-            <div className="message my-message">{parse(messages.body)}</div>
+            <div className="message my-message" dangerouslySetInnerHTML={{__html: messages.body}}></div>
         </li>
     )
 }
