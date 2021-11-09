@@ -22,9 +22,7 @@ class Centrifugo implements CentrifugoInterface
             'method' => 'publish',
             'params' => [
                 "channel" => $channel,
-                "data" => [
-                    "messages" => "hello"
-                ],
+                "data" => $data
 
             ]
         ]);
