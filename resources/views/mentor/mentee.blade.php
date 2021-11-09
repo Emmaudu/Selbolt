@@ -36,7 +36,7 @@ User Page
                       </div>
                       <div class="d-flex justify-content-between px-3 align-items-center pb-3">
                           <div class="d-flex justify-content-start align-items-center">
-                            <a href="/message/{{$activeMentee->custom_id}}" class="btn" style="background-color: #191970;color: white">Chat</a>
+                            <a href="http://selbolt.com/message/{{$activeMentee->custom_id}}" target="__blank" class="btn" style="background-color: #191970;color: white">Chat</a>
                           </div>
                           <div class="d-flex justify-content-start px-3  align-items-center pb-3">
                             <span class="mt-3" style="display: inline-block">
@@ -70,6 +70,7 @@ User Page
               <div class="pt-3">
                   <div class="two">
                       <div class="d-flex justify-content-end px-3 pt-1"><i class="mdi mdi-star-outline pr-1 star"></i><i class="mdi mdi-dots-horizontal dot"></i></div>
+                      
                       <div class="px-3">
                           <div class="round"><img src="https://img.icons8.com/emoji/48/000000/hedgehog-emoji.png" width="23" class="imgfix" /></div>
                       </div>
@@ -78,6 +79,9 @@ User Page
                           <p class="quote2 p2">Email: {{$inactiveMentee->email}}</p>
                       </div>
                       <div class="d-flex justify-content-between px-3 align-items-center pb-3">
+                      <div class="d-flex justify-content-start align-items-center">
+                        <a href="http://selbolt.com/message/{{$inactiveMentee->custom_id}}" target="__blank" class="btn" style="background-color: #191970;color: white">Chat</a>
+                      </div>
                         <div class="d-flex justify-content-end"> <img src="https://img.icons8.com/bubbles/50/000000/girl-and-playing-card.png" width="20" class="img2" /> <img src="https://img.icons8.com/bubbles/50/000000/short-hair-girl-question-mark.png" width="20" class="img3" /> </div>
                       </div>
                   </div>

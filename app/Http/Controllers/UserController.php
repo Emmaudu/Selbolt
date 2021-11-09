@@ -15,13 +15,16 @@ use App\Models\MentorUser;
 use Exception;
 use Validator;
 use Illuminate\Support\Carbon;
+use App\Http\Service\EmailService;
 
 class UserController extends Controller
 {
-    public function __construct(){
+    protected $emailService;
+    public function __construct(EmailService $emailService){
         //$this->middleware('cors');
         $this->middleware('auth');
         //$this->middleware('auth')->only('serviceView');
+        $this->emailService = $emailService;
     }
 
     public function user(){
@@ -226,6 +229,18 @@ class UserController extends Controller
                 "mentor_id" => $mentor->id
             ]);
         }
+
+        $customData = [
+            'email' => auth()->user()->email,
+            'user' => auth()->user()->fullname(),
+        ];
+
+        $to = $mentor->email;
+        $subject = 'New Application';
+        $view = 'mail.mentee-appplication';
+
+        $this->emailService->send($customData, $to, $subject, $view);
+
 
         return view('success');
     }

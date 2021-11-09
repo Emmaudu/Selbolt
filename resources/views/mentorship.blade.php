@@ -26,7 +26,7 @@ Tasks
                   </div>
                   <div class="d-flex justify-content-start px-3 align-items-center"> <i class="mdi mdi-view-comfy task"></i></div>
                   <div class="d-flex justify-content-between px-3 align-items-center pb-3">
-                      <div class="d-flex justify-content-start align-items-center"> <i class="mdi mdi-calendar-clock date"></i> <span class="quote2 pl-2"><a href="/message/{{$mentor->mentors->custom_id}}" target="_blank" class="ml-5 float-right btn btn-sm btn-info">Chat</a></span> </div>
+                      <div class="d-flex justify-content-start align-items-center"> <i class="mdi mdi-calendar-clock date"></i> <span class="quote2 pl-2"><a href="http://selbolt.com/message/{{$mentor->mentors->custom_id}}" target="_blank" class="ml-5 float-right btn btn-sm btn-info">Chat</a></span> </div>
                       <div class="d-flex justify-content-start align-items-center">
                       @if(\Carbon\Carbon::now() > $mentor->end_date)<span class="float-right"><button data-toggle="modal" data-target="#mymodal" class="btn btn-success btn-sm" href="" target="_blank">Renew</button></span>@endif
                       </div>

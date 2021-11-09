@@ -12,13 +12,15 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
+
 Route::get('/forgotpassword', [App\Http\Controllers\v1\ForgotPasswordController::class, 'index']);
 Route::post('/forgotpassword', [App\Http\Controllers\v1\ForgotPasswordController::class, 'forgotPassword'])->name('forgotpasword');
 
 Route::get('/resetpassword/{token}', [App\Http\Controllers\v1\ResetPasswordController::class, 'viewResetPasword']);
 Route::post('/resetpassword', [App\Http\Controllers\v1\ResetPasswordController::class, 'resetPassword'])->name('resetpassword');
 
-Route::get('/hometest', [App\Http\Controllers\HomeController::class, 'index']);
+
 
 Route::get('/success', [App\Http\Controllers\UserController::class, 'successPage']);
 
@@ -59,7 +61,6 @@ Route::get('/tasker/login', [App\Http\Controllers\Auth\Mentor\LoginController::c
 Route::post('/tasker/login', [App\Http\Controllers\Auth\Mentor\LoginController::class, 'authenticate'])->name('login.mentor');
 Route::get('/tasker/logout', [App\Http\Controllers\Auth\Mentor\LoginController::class, 'logout'])->name('mentor.logout');
 
-Route::get('/', [App\Http\Controllers\v1\User\MentorController::class, 'index'])->name('mentors');
 Route::get('/taskers', [App\Http\Controllers\v1\User\MentorController::class, 'index'])->name('mentors');
 Route::get('/taskers/filter', [App\Http\Controllers\v1\User\MentorController::class, 'filterMentor'])->name('search.mentor');
 Route::get('/taskers/{id}/service', [App\Http\Controllers\UserController::class, 'serviceView'])->name('service.mentor');

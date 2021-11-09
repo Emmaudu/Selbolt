@@ -11,7 +11,7 @@ Selbolt | User | Login
 @section('content')
 <nav id="navbar-main" style="background-color: #C124BB;" class="navbar navbar-horizontal navbar-transparent navbar-main navbar-expand-lg navbar-light">
     <div class="container">
-      <a class="navbar-brand text-white" href="#">
+      <a class="navbar-brand text-white" href="/">
         Selbolt
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">

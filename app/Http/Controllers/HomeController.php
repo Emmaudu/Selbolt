@@ -13,7 +13,14 @@ class HomeController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth:web');
+        $this->middleware('auth:web')->except('index');
+    }
+
+    public function index()
+    {
+        $mentors = Mentor::all()->count();
+        $users = User::all()->count();
+        return view('home', compact('mentors', 'users'));
     }
 
     /**

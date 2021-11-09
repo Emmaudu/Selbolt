@@ -33,9 +33,9 @@
                                 Thank you for your submission
                             </div>
                             <div class="card-body">
-                                <h5 class="card-title">You will be contacted when the mentor approve your </h5>
+                                <h5 class="card-title">You will be contacted when the tasker approve your </h5>
                                
-                                <a href="/mentors" class="btn btn-primary">Back to mentors page</a>
+                                <a href="/taskers" class="btn btn-primary">Back to taskers page</a>
                             </div>
                         </div>
                     </div>

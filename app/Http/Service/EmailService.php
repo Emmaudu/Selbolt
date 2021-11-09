@@ -9,7 +9,7 @@ class EmailService implements EmailInterface
 {
     protected $customData;
     protected $to;
-    protected $from = "makindet74@gmail.com";
+    protected $from = "tryselbolt@gmail.com";
     protected $subject;
 
 

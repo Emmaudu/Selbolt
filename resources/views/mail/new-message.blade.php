@@ -8,4 +8,4 @@
 
 <h4 style="color: red">------------Message------------</h4>
 <i>{!! $customData['message'] !!}</i>
-<a type="button" href="http://localhost:8001/login" target="_blank">click here to login</a>
+<a type="button" href="https://selbolt.com/login" target="_blank">click here to login</a>
