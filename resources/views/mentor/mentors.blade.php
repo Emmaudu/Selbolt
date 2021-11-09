@@ -44,7 +44,7 @@
   <nav id="navbar-main" style="background-color: #C124BB;position: fixed" class="navbar navbar-horizontal navbar-transparent navbar-main navbar-expand-lg navbar-light">
     <div class="container">
       <a class="navbar-brand text-white" href="#">
-        <h1 class="text-white"><b>Selbolt</b></h1>
+        <h1 class="text-white">Selbolt</h1>
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -54,7 +54,7 @@
           <div class="row">
             <div class="col-6 collapse-brand">
               <a class="text-white" href="#">
-                <h1 class="text-white"><b>Selbolt</b></h1>
+                <h1 class="text-white">Selbolt</h1>
               </a>
             </div>
             <div class="col-6 collapse-close">
@@ -69,7 +69,7 @@
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
             <a href="{{route('mentee.dashboard')}}""" class="nav-link">
-              <span class="nav-link-inner--text"<b>Dashboard</b></span>
+              <span class="nav-link-inner--text"><b>Dashboard</b></span>
             </a>
           </li>
         </ul>
@@ -77,7 +77,7 @@
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
             <a href="{{route('mentor.dashboard')}}""" class="nav-link">
-              <span class="nav-link-inner--text"<b>Dashboard</b></span>
+              <span class="nav-link-inner--text"><b>Dashboard</b></span>
             </a>
           </li>
         </ul>
@@ -85,17 +85,17 @@
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
             <a href="{{route('login-mentee')}}" class="nav-link">
-              <span class="nav-link-inner--text"<b>Login</b></span>
+              <span class="nav-link-inner--text"><b>Login</b></span>
             </a>
           </li>
           <li class="nav-item">
             <a href="{{route('register')}}" class="nav-link">
-              <span class="nav-link-inner--text"<b>Register as User</b></span>
+              <span class="nav-link-inner--text"><b>Register as User</b></span>
             </a>
           </li>
           <li class="nav-item">
             <a href="{{route('register-mentor')}}" class="nav-link">
-              <span class="nav-link-inner--text"<b>Register as Tasker</b></span>
+              <span class="nav-link-inner--text"><b>Register as Tasker</b></span>
             </a>
           </li>
         </ul>
