@@ -43,17 +43,17 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto text-white" href="/">Home</a></li>
+          <li><a class="nav-link scrollto text-blue" href="/">Home</a></li>
           @if(auth()->guard('web')->check())
-          <li><a class="nav-link scrollto text-white" href="{{route('mentee.dashboard')}}">Dashboard</a></li>
+          <li><a class="nav-link scrollto text-blue" href="{{route('mentee.dashboard')}}">Dashboard</a></li>
                  
           @elseif(auth()->guard('mentors')->check())
-          <li><a class="nav-link scrollto text-white" href="{{route('mentor.dashboard')}}">Dashboard</a></li>
+          <li><a class="nav-link scrollto text-blue" href="{{route('mentor.dashboard')}}">Dashboard</a></li>
           @else
-          <li><a class="nav-link scrollto text-white" href="{{route('login-mentee')}}">Login as user</a></li>
-          <li><a class="nav-link scrollto text-white" href="{{route('login-mentor')}}">Login as mentor</a></li>
+          <li><a class="nav-link scrollto text-blue" href="{{route('login-mentee')}}">Login as user</a></li>
+          <li><a class="nav-link scrollto text-blue" href="{{route('login-mentor')}}">Login as mentor</a></li>
                  
-          <li class="dropdown"><a href="#"><span class="text-white">Actions</span> <i class="bi bi-chevron-down"></i></a>
+          <li class="dropdown"><a href="#"><span class="text-blue">Actions</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="{{route('register-mentor')}}">Register Mentor</a></li>
               <li><a href="{{route('register')}}">Register</a></li>
@@ -321,7 +321,7 @@
               <img src="{{asset('home/assets/img/logo')}}" alt="">
               <span>Selbolt</span>
             </a>
-            <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
+            <p>Outsource errand tasks to trusted taskers around the world.</p>
             <div class="social-links mt-3">
               <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
               <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
