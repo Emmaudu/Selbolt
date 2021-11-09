@@ -45,7 +45,7 @@ Tasks
             </button>
           </div>
         <div class="modal-body">
-            <form action="/mentee/review" method="post">
+            <form action="/user/review" method="post">
             @csrf
                 <div class="form-group">
                   <label for="recipient-name" class="col-form-label">Description</label>
