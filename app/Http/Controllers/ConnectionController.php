@@ -288,9 +288,7 @@ class ConnectionController extends Controller
     }
 
     public function guard(){
-        $guards = ['mentors', 'admins', 'webs'];
-
-        return collect($guards)->first(fn ($guard) => auth($guard)->check());
+        
         //$this->guard();
         if (auth()->user() instanceof Mentor) {
             $this->guard = 'mentors';
