@@ -482,8 +482,8 @@ class MentorController extends Controller
         $mentor = auth()->user();
         //add user to chat
         OneChat::create([
-            "sender_type" => "App\Model\Mentor",
-            "receiver_type" => "App\Model\User",
+            "sender_type" => "App\Models\Mentor",
+            "receiver_type" => "App\Models\User",
             "sender_id" => auth()->user()->id,
             "receiver_id" => $id,
             "channel" => Str::random(6)
