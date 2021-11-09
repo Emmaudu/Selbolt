@@ -50,7 +50,7 @@
           @elseif(auth()->guard('mentors')->check())
           <li><a class="nav-link scrollto text-blue" href="{{route('mentor.dashboard')}}">Dashboard</a></li>
           @else
-          <li><a class="nav-link scrollto text-blue" href="{{route('login-mentee')}}">Login as user</a></li>
+          <li><a class="nav-link scrollto text-blue" href="{{route('login-mentee')}}">Logi as user</a></li>
           <li><a class="nav-link scrollto text-blue" href="{{route('login-mentor')}}">Login as mentor</a></li>
                  
           <li class="dropdown"><a href="#"><span class="text-blue">Actions</span> <i class="bi bi-chevron-down"></i></a>
